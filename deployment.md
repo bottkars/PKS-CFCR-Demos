@@ -66,6 +66,7 @@ bosh env
 ```
 
 export DIRECTOR_NAME=<DirectorName>
+
 ## export
 
 ```bash
@@ -73,6 +74,29 @@ export DIRECTOR_NAME=bosh-azure-kubo
 ${KD}/bin/set_kubeconfig ${DIRECTOR_NAME}/${deployment_name} https://${api_hostname}:8443
 ```
 
-
 ## clone into a demo, like guestbook
+
+```bash
+git clone https://github.com/kubernetes/examples kubernetes-examples
+````
+
+## create/deploy service
+
+```bash
+kubectl create -f kubernetes-examples/guestbook/redis-master-deployment.yaml
+kubectl create -f kubernetes-examples/guestbook/redis-master-service.yaml
+kubectl create -f kubernetes-examples/guestbook/redis-slave-deployment.yaml
+kubectl create -f kubernetes-examples/guestbook/redis-slave-service.yaml
+kubectl create -f kubernetes-examples/guestbook/frontend-deployment.yaml
+kubectl create -f kubernetes-examples/guestbook/frontend-service.yaml
+```
+
+
+## helm
+
+```zsh
+brew install kubernetes-helm
+```
+
+
 
